@@ -16,7 +16,7 @@ This wiki covers class information for IEEE-related courses and activities at Co
 <ul>
   {% for post in site.categories[2000] %}
     <li>
-      <a href="{{ post.url }}">{{ post.code }}</a>: {{ post.title }}
+      <a href="{{ post.url | relative_url}}">{{ post.code }}</a>: {{ post.title }}
     </li>
   {% endfor %}
 </ul>
@@ -26,7 +26,7 @@ This wiki covers class information for IEEE-related courses and activities at Co
 <ul>
   {% for post in site.categories[3000] %}
     <li>
-      <a href="{{ post.url }}">{{ post.code }}</a>: {{ post.title }}
+      <a href="{{ post.url | relative_url}}">{{ post.code }}</a>: {{ post.title }}
     </li>
   {% endfor %}
 </ul>
@@ -36,7 +36,7 @@ This wiki covers class information for IEEE-related courses and activities at Co
 <ul>
   {% for post in site.categories[4000] %}
     <li>
-      <a href="{{ post.url }}">{{ post.code }}</a>: {{ post.title }}
+      <a href="{{ post.url | relative_url}}">{{ post.code }}</a>: {{ post.title }}
     </li>
   {% endfor %}
 </ul>
