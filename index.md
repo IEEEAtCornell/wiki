@@ -1,6 +1,6 @@
 # IEEE at Cornell Wiki
 
-<img src="./assets/ieee_at_cornell_logo_glow.png" alt="IEEE at Cornell Logo" width="50%"/>
+<img src="./assets/ieee_at_cornell_logo_glow.png" alt="IEEE at Cornell Logo" width="100%"/>
 
 This wiki covers class information for IEEE-related courses and activities at Cornell University. Our goal is to provide easy access to important resources, course materials, and student guidance.
 

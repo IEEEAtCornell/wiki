@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }}</title>
+</head>
+
+<body>
+    <header>
+        <h1>{{ page.title }}</h1>
+        <p><strong>Professor:</strong> {{ page.professor }}</p>
+        <p><strong>Semester:</strong> {{ page.semester }}</p>
+        <p><strong>Credits:</strong> {{ page.credits }}</p>
+        <p><strong>Difficulty:</strong> {{ page.difficulty }}</p>
+        <p><strong>Rating:</strong> {{ page.rating }}</p>
+        <p><strong>Tags:</strong> {{ page.tags | join: ', ' }}</p>
+    </header>
+
+    <section>
+        <h2>Class Overview</h2>
+        <p>{{ page.overview }}</p>
+
+        <h3>Key Takeaways</h3>
+        <ul>
+            <li><strong>Prerequisites:</strong> {{ page.prerequisites }}</li>
+            <li><strong>Key Topics:</strong> {{ page.key_topics | join: ', ' }}</li>
+            <li><strong>Assignments:</strong> {{ page.assignments }}</li>
+            <li><strong>Exams:</strong> {{ page.exams }}</li>
+        </ul>
+
+        <h3>Pros</h3>
+        <ul>
+            {% for pro in page.pros %}
+            <li>{{ pro }}</li>
+            {% endfor %}
+        </ul>
+
+        <h3>Cons</h3>
+        <ul>
+            {% for con in page.cons %}
+            <li>{{ con }}</li>
+            {% endfor %}
+        </ul>
+
+        <h3>Student Reviews</h3>
+        {% for review in page.reviews %}
+        <blockquote>
+            <p>"{{ review.content }}"<br>– <em>{{ review.author }}</em></p>
+        </blockquote>
+        {% endfor %}
+    </section>
+
+    <footer>
+        <h3>Tips for Success</h3>
+        <ul>
+            {% for tip in page.tips %}
+            <li>{{ tip }}</li>
+            {% endfor %}
+        </ul>
+    </footer>
+
+</body>
+
+</html>
