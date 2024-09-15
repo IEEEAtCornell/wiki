@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "IEEE at Cornell Wiki"
+title: "/"
 ---
 
 # IEEE at Cornell Wiki
