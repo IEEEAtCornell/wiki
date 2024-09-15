@@ -7,6 +7,8 @@ header_pages:
     - index.md
     - about.md
 
+url: "https://da-luce.github.io/ieee-at-cornell-wiki.github.io/"
+
 style: light
 
 footer: 'follow us on <a href="https://www.instagram.com/ieee.at.cornell/">instagram</a>'
