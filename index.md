@@ -11,23 +11,32 @@ This wiki covers class information for IEEE-related courses and activities at Co
 
 ## Classes
 
+### 2000-Level
+
 <ul>
-  {% for post in site.posts %}
+  {% for post in site.categories[2000] %}
     <li>
-      <a href="{{ post.permalink }}">{{ post.title }}</a>
+      <a href="{{ post.url }}">{{ post.title }}</a> - {{ post.professor }}
     </li>
   {% endfor %}
 </ul>
 
-### 2000
+### 3000-Level
 
-* [ECE 2100](https://da-luce.github.io/ieee-at-cornell-wiki.github.io/classes/ece2100.md)
-* [ECE 2300](https://da-luce.github.io/ieee-at-cornell-wiki.github.io/classes/ece2300.md)
+<ul>
+  {% for post in site.categories[3000] %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a> - {{ post.professor }}
+    </li>
+  {% endfor %}
+</ul>
 
-### 3000
+### 4000-Level
 
-* [ECE 3250](https://da-luce.github.io/ieee-at-cornell-wiki.github.io/classes/ece3250.md)
-
-### 4000
-
-* [ECE 4750](https://da-luce.github.io/ieee-at-cornell-wiki.github.io/classes/ece4750.md)
+<ul>
+  {% for post in site.categories[4000] %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a> - {{ post.professor }}
+    </li>
+  {% endfor %}
+</ul>
