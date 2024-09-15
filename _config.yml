@@ -8,6 +8,8 @@ header_pages:
 
 style: dark
 
+footer: 'follow us on <a href="https://www.instagram.com/ieee.at.cornell/">instagram</a>'
+
 remote_theme: b2a3e8/jekyll-theme-console
 plugins:
     - jekyll-remote-theme
