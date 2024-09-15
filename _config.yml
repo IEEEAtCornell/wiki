@@ -7,7 +7,7 @@ header_pages:
     - index.md
     - about.md
 
-style: dark
+style: light
 
 footer: 'follow us on <a href="https://www.instagram.com/ieee.at.cornell/">instagram</a>'
 
