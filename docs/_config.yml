@@ -4,4 +4,4 @@ baseurl: "/docs"
 url: "https://da-luce.github.io/ieee-at-cornell-wiki.github.io"
 plugins:
     - jekyll-remote-theme
-remote_theme: mmistakes/minimal-mistakes
+remote_theme: b2a3e8/jekyll-theme-console
