@@ -2,6 +2,7 @@ title: IEEE at Cornell Wiki
 description: Class information for IEEE-related courses and activities at Cornell University
 baseurl: "/docs"
 url: "https://da-luce.github.io/ieee-at-cornell-wiki.github.io"
-plugins:
-    - jekyll-remote-theme
-remote_theme: mmistakes/minimal-mistakes
+# plugins:
+#     - jekyll-remote-theme
+# remote_theme: mmistakes/minimal-mistakes
+theme: jekyll-theme-cayman
