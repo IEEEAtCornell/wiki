@@ -5,63 +5,114 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }}</title>
+
+    <!-- IMPORTANT: need this to use theme styling -->
     <link rel="stylesheet" href="{{ '/assets/main-light.css' | relative_url }}">
+
+    <style>
+        /* Center the content and apply basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            /* Centers the content */
+            padding: 20px;
+        }
+
+        header,
+        footer {
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        p,
+        ul {
+            margin-bottom: 20px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        blockquote {
+            padding-left: 15px;
+            font-style: italic;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        footer ul li {
+            display: inline-block;
+            margin-right: 15px;
+        }
+    </style>
 </head>
 
 <body>
-    <header>
-        <h1>{{ page.title }}</h1>
-        <p><strong>Professor:</strong> {{ page.professor }}</p>
-        <p><strong>Semester:</strong> {{ page.semester }}</p>
-        <p><strong>Credits:</strong> {{ page.credits }}</p>
-        <p><strong>Difficulty:</strong> {{ page.difficulty }}</p>
-        <p><strong>Rating:</strong> {{ page.rating }}</p>
-        <p><strong>Tags:</strong> {{ page.tags | join: ', ' }}</p>
-    </header>
+    <div class="container">
+        <header>
+            <h1>{{ page.title }}</h1>
+            <p><strong>Professor:</strong> {{ page.professor }}</p>
+            <p><strong>Semester:</strong> {{ page.semester }}</p>
+            <p><strong>Credits:</strong> {{ page.credits }}</p>
+            <p><strong>Difficulty:</strong> {{ page.difficulty }}</p>
+            <p><strong>Rating:</strong> {{ page.rating }}</p>
+            <p><strong>Tags:</strong> {{ page.tags | join: ', ' }}</p>
+        </header>
 
-    <section>
-        <h2>Class Overview</h2>
-        <p>{{ page.overview }}</p>
+        <section>
+            <h2>Class Overview</h2>
+            <p>{{ page.overview }}</p>
 
-        <h3>Key Takeaways</h3>
-        <ul>
-            <li><strong>Prerequisites:</strong> {{ page.prerequisites }}</li>
-            <li><strong>Key Topics:</strong> {{ page.key_topics | join: ', ' }}</li>
-            <li><strong>Assignments:</strong> {{ page.assignments }}</li>
-            <li><strong>Exams:</strong> {{ page.exams }}</li>
-        </ul>
+            <h3>Key Takeaways</h3>
+            <ul>
+                <li><strong>Prerequisites:</strong> {{ page.prerequisites }}</li>
+                <li><strong>Key Topics:</strong> {{ page.key_topics | join: ', ' }}</li>
+                <li><strong>Assignments:</strong> {{ page.assignments }}</li>
+                <li><strong>Exams:</strong> {{ page.exams }}</li>
+            </ul>
 
-        <h3>Pros</h3>
-        <ul>
-            {% for pro in page.pros %}
-            <li>{{ pro }}</li>
+            <h3>Pros</h3>
+            <ul>
+                {% for pro in page.pros %}
+                <li>{{ pro }}</li>
+                {% endfor %}
+            </ul>
+
+            <h3>Cons</h3>
+            <ul>
+                {% for con in page.cons %}
+                <li>{{ con }}</li>
+                {% endfor %}
+            </ul>
+
+            <h3>Student Reviews</h3>
+            {% for review in page.reviews %}
+            <blockquote>
+                <p>"{{ review.content }}"<br>– <em>{{ review.author }}</em></p>
+            </blockquote>
             {% endfor %}
-        </ul>
+        </section>
 
-        <h3>Cons</h3>
-        <ul>
-            {% for con in page.cons %}
-            <li>{{ con }}</li>
-            {% endfor %}
-        </ul>
-
-        <h3>Student Reviews</h3>
-        {% for review in page.reviews %}
-        <blockquote>
-            <p>"{{ review.content }}"<br>– <em>{{ review.author }}</em></p>
-        </blockquote>
-        {% endfor %}
-    </section>
-
-    <footer>
-        <h3>Tips for Success</h3>
-        <ul>
-            {% for tip in page.tips %}
-            <li>{{ tip }}</li>
-            {% endfor %}
-        </ul>
-    </footer>
-
+        <footer>
+            <h3>Tips for Success</h3>
+            <ul>
+                {% for tip in page.tips %}
+                <li>{{ tip }}</li>
+                {% endfor %}
+            </ul>
+        </footer>
+    </div>
 </body>
 
 </html>
