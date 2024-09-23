@@ -11,6 +11,16 @@ This wiki covers class information for IEEE-related courses and activities at Co
 
 ## Classes
 
+### 1000-Level
+
+<ul>
+  {% for post in site.categories[1000] %}
+    <li>
+      <a href="{{ post.url | relative_url}}">{{ post.code }}</a>: {{ post.title }}
+    </li>
+  {% endfor %}
+</ul>
+
 ### 2000-Level
 
 <ul>
