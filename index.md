@@ -50,3 +50,13 @@ This wiki covers class information for IEEE-related courses and activities at Co
     </li>
   {% endfor %}
 </ul>
+
+### 5000-Level
+
+<ul>
+  {% for post in site.categories[5000] %}
+    <li>
+      <a href="{{ post.url | relative_url}}">{{ post.code }}</a>: {{ post.title }}
+    </li>
+  {% endfor %}
+</ul>
