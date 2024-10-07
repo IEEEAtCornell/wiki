@@ -7,7 +7,7 @@ title: "/"
 
 <img src="./assets/ieee_at_cornell_logo_glow.png" alt="IEEE at Cornell Logo" width="100%"/>
 
-This wiki covers class information for IEEE-related courses and activities at Cornell University. Our goal is to provide easy access to important resources, course materials, and student guidance.
+This wiki covers class information for IEEE-related courses and activities at Cornell University. Our goal is to provide easy access to important resources, course materials, and student guidance. Please help us grow this valuable resource by [contributing](./README.md#contributing)!
 
 ## Classes
 
