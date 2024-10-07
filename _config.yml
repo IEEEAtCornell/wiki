@@ -4,6 +4,7 @@ description: Class information for IEEE-related courses and activities at Cornel
 header_pages:
     - index.md
     - about.md
+    - contributing.md
 
 url: "https://ieeeatcornell.github.io"
 baseurl: "/wiki"
