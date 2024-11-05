@@ -28,6 +28,7 @@ title: "/contributing"
 ## Editing a Class
 
 - Edit one of the class files under [`_posts`](./_posts/). Update the date in the file name to the date of the edit
+- Our pages support [MathJax](https://www.mathjax.org/) (a subset of [LaTeX](https://www.latex-project.org/)) outside the front matter section of class pages. See the [ECE 3250 page](./_posts/2024-10-14-ece3250.md) for an example.
 
 ## Test your Changes
 
@@ -60,6 +61,9 @@ title: "/contributing"
   ```
 
   Look for the `Server address:` field near the end of the command's output. You can view the site by pasting that URL into a web browser of your choice.
+
+> [!TIP]
+> The local site will update automatically as you edit the code--just make sure to reload the page!
 
 ## Submit a Pull Request
 
