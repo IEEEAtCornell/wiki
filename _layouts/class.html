@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: " en" }}">
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
 
 <head>
 
@@ -49,6 +49,23 @@
             display: inline-block;
             margin-right: 15px;
         }
+
+        .professor-section {
+            border: 2px solid #ddd;
+            border-radius: 1em;
+            margin-top: 2em;
+            padding: 2em;
+            transition: all 0.5s ease;
+        }
+
+        .professor-section:hover {
+            box-shadow: 0px 0px 20px #9e9e9e;
+        }
+
+        .professor-details {
+            padding-left: 2em;
+        }
+
     </style>
 </head>
 
@@ -56,56 +73,58 @@
     <div class="container">
         <header>
             <h1>{{ page.title }}</h1>
-            <p><strong>Professor:</strong> {{ page.professor }}</p>
-            <p><strong>Semester:</strong> {{ page.semester }}</p>
             <p><strong>Credits:</strong> {{ page.credits }}</p>
-            <p><strong>Difficulty:</strong> {{ page.difficulty }}</p>
-            <p><strong>Rating:</strong> {{ page.rating }}</p>
             <p><strong>Tags:</strong> {{ page.tags | join: ', ' }}</p>
         </header>
 
         <section>
             <h2>Class Overview</h2>
             <p>{{ page.overview }}</p>
-
-            <h3>Key Takeaways</h3>
-            <ul>
-                <li><strong>Prerequisites:</strong> {{ page.prerequisites }}</li>
-                <li><strong>Key Topics:</strong> {{ page.key_topics | join: ', ' }}</li>
-                <li><strong>Assignments:</strong> {{ page.assignments }}</li>
-                <li><strong>Exams:</strong> {{ page.exams }}</li>
-            </ul>
-
-            <h3>Pros</h3>
-            <ul>
-                {% for pro in page.pros %}
-                <li>{{ pro }}</li>
-                {% endfor %}
-            </ul>
-
-            <h3>Cons</h3>
-            <ul>
-                {% for con in page.cons %}
-                <li>{{ con }}</li>
-                {% endfor %}
-            </ul>
-
-            <h3>Student Reviews</h3>
-            {% for review in page.reviews %}
-            <blockquote>
-                <p>"{{ review.content }}"<br>– <em>{{ review.author }}</em></p>
-            </blockquote>
-            {% endfor %}
+            <p><strong>Prerequisites:</strong> {{ page.prerequisites }}<br><strong>Key Topics:</strong> {{ page.key_topics | join: ', ' }}</p>
         </section>
 
-        <footer>
-            <h3>Tips for Success</h3>
-            <ul>
-                {% for tip in page.tips %}
-                <li>{{ tip }}</li>
+        {% for professor in page.professors %}
+        <section class="professor-section">
+            <h2>Professor: {{ professor.name }}</h2>
+            <div class="professor-details">
+                <p><strong>Semester(s):</strong> {{ professor.semesters | default: "N/A" }}</p>
+                <p><strong>Difficulty:</strong> {{ professor.difficulty | default: "Not specified" }}</p>
+                <p><strong>Rating:</strong> {{ professor.rating | default: "Not rated" }}</p>
+                <p><strong>Assignments:</strong> {{ professor.assignments | default: "Not specified" }}</p>
+                <p><strong>Exams:</strong> {{ professor.exams | default: "Not specified" }}</p>
+
+                <h3>Pros</h3>
+                <ul>
+                    {% for pro in professor.pros %}
+                    <li>{{ pro }}</li>
+                    {% endfor %}
+                </ul>
+
+                <h3>Cons</h3>
+                <ul>
+                    {% for con in professor.cons %}
+                    <li>{{ con }}</li>
+                    {% endfor %}
+                </ul>
+
+                {% if professor.reviews %}
+                <h3>Student Reviews</h3>
+                {% for review in professor.reviews %}
+                <blockquote>
+                    <p>"{{ review.content }}"<br>– <em>{{ review.author }}</em></p>
+                </blockquote>
                 {% endfor %}
-            </ul>
-        </footer>
+                {% endif %}
+
+                <h3>Tips for Success</h3>
+                <ul>
+                    {% for tip in professor.tips %}
+                    <li>{{ tip }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+        {% endfor %}
 
         <!-- Include additional markdown content from the .md file here -->
         <section>
