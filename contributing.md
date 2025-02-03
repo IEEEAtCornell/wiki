@@ -6,7 +6,7 @@ title: "/contributing"
 # Contributing
 
 > [!NOTE]
-> These instructions are for general student contributions. IEEE members should branch and commit directly to this repository.
+> These instructions are for general student contributions. IEEE members should branch and commit directly to this repository with their _personal_ GitHub account.
 
 ## Fork the Repository
 
