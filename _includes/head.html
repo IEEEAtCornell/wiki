@@ -1,0 +1,20 @@
+<!-- MathJax Support -->
+{% if page.mathjax %}
+<script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+        });
+      </script>
+<script type="text/javascript" async
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+{% endif %}
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ page.title }}</title>
+
+<!-- Favicon Links -->
+<link rel="icon" href="{{ '/assets/bolt.png' | relative_url }}" type="image/png">
+
+<!-- IMPORTANT: need this to use theme styling -->
+<link rel="stylesheet" href="{{ '/assets/main-light.css' | relative_url }}">
