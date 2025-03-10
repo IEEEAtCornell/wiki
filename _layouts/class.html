@@ -6,7 +6,7 @@
     {% include head.html %}
 
     <style>
-        /* Center the content and apply basic styling */
+        /* General styles */
         body {
             line-height: 1.6;
             margin: 0;
@@ -16,7 +16,6 @@
         .container {
             max-width: 900px;
             margin: 0 auto;
-            /* Centers the content */
             padding: 20px;
         }
 
@@ -26,30 +25,42 @@
             padding: 10px 0;
         }
 
-        p,
-        ul {
-            margin-bottom: 20px;
+        /* Main navigation styling */
+        nav {
+            background-color: #333;
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        ul {
-            padding-left: 20px;
-        }
-
-        blockquote {
-            padding-left: 15px;
-            font-style: italic;
-        }
-
-        footer ul {
+        nav ul {
             list-style: none;
             padding: 0;
+            margin: 0;
         }
 
-        footer ul li {
+        nav ul li {
             display: inline-block;
-            margin-right: 15px;
+            margin: 0 20px;
         }
 
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        nav ul li.current a {
+            color: #ffcc00; /* Highlight active link */
+        }
+
+        /* Professor section styling */
         .professor-section {
             border: 2px solid #ddd;
             border-radius: 1em;
@@ -66,10 +77,54 @@
             padding-left: 2em;
         }
 
+        /* Footer styling */
+        footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        footer ul li {
+            display: inline-block;
+            margin-right: 15px;
+        }
+
+        /* Section styling */
+        section {
+            margin-top: 20px;
+        }
+
+        blockquote {
+            padding-left: 15px;
+            font-style: italic;
+            border-left: 4px solid #ccc;
+            margin: 20px 0;
+        }
+        
+        /* Adjustments for smaller screens */
+        @media screen and (max-width: 768px) {
+            nav ul li {
+                display: block;
+                margin-bottom: 10px;
+            }
+
+            .container {
+                padding: 10px;
+            }
+        }
     </style>
 </head>
 
 <body>
+    <!-- Main navigation -->
+    <nav>
+        <ul>
+            <li><a href="{{ site.baseurl }}/" class="{% if page.url == '/' %}current{% endif %}">Home</a></li>
+            <li><a href="{{ site.baseurl }}/classes" class="{% if page.url == '/classes' %}current{% endif %}">Classes</a></li>
+            <li><a href="{{ site.baseurl }}/about" class="{% if page.url == '/about' %}current{% endif %}">About</a></li>
+            <li><a href="{{ site.baseurl }}/contributing" class="{% if page.url == '/contributing' %}current{% endif %}">Contributing</a></li>
+        </ul>
+    </nav>
+
     <div class="container">
         <header>
             <h1>{{ page.title }}</h1>
@@ -131,6 +186,12 @@
             {{ content }}
         </section>
 
+        <footer>
+            <ul>
+                <li><a href="https://github.com/IEEEAtCornell/wiki">GitHub</a></li>
+                <li><a href="https://www.instagram.com/ieee.at.cornell/">Instagram</a></li>
+            </ul>
+        </footer>
     </div>
 </body>
 
