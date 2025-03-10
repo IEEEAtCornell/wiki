@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+
+<head>
+    {% include head.html %}
+    <style>
+        /* Navigation Bar Styling */
+        nav {
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: inline-block;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-right: 20px;
+            position: relative;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Dropdown Menu */
+        nav ul li .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            padding: 10px 0;
+        }
+
+        nav ul li:hover .dropdown-content {
+            display: block;
+        }
+
+        nav ul li .dropdown-content a {
+            color: white;
+            padding: 10px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        nav ul li .dropdown-content a:hover {
+            background-color: #575757;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>{{ page.title }}</h1>
+        </header>
+
+        <!-- Main Navigation Bar -->
+        <nav>
+            <ul>
+                <li><a href="{{ site.baseurl }}/">Home</a></li>
+
+                <!-- Classes Dropdown -->
+                <li>
+                    <a href="{{ site.baseurl }}/classes">Classes</a>
+                    <div class="dropdown-content">
+                        <a href="{{ site.baseurl }}/classes/1000-level">1000 Level</a>
+                        <a href="{{ site.baseurl }}/classes/2000-level">2000 Level</a>
+                        <a href="{{ site.baseurl }}/classes/3000-level">3000 Level</a>
+                        <a href="{{ site.baseurl }}/classes/4000-level">4000 Level</a>
+                    </div>
+                </li>
+
+                <li><a href="{{ site.baseurl }}/about">About Us</a></li>
+                <li><a href="{{ site.baseurl }}/contributing">Contributing</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main content of the page -->
+        <section>
+            {{ content }}
+        </section>
+
+        <footer>
+            {% include footer.html %}
+        </footer>
+    </div>
+</body>
+
+</html>
