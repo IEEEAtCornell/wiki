@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "/about_us"
+title: "/about"
 ---
 
 ## About IEEE at Cornell

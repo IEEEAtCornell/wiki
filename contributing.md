@@ -1,6 +1,10 @@
 ---
 layout: default
 title: "/contributing"
+callouts:
+  warning:
+    title: Warning
+    color: red
 ---
 
 # Contributing
@@ -34,36 +38,36 @@ title: "/contributing"
 
 1. **[Install Jekyll locally](https://jekyllrb.com/docs/installation/). Follow the installation guide per your operating system.**
 
-- Ruby installs compile the source code, so this step may take quite a while.
-- Note for MacOS: Jekyll recommends automatically using `chruby` by adding some commands to your shell's source file. If you don't want to do this, just run this when you need to use `jekyll` in a new shell session:
+   - Ruby installs compile the source code, so this step may take quite a while.
+   - Note for MacOS: Jekyll recommends automatically using `chruby` by adding some commands to your shell's source file. If you don't want to do this, just run this when you need to use `jekyll` in a new shell session:
 
-  ```shell
-  source $(brew --prefix)/opt/chruby/share/chruby/chruby.sh
-  chruby ruby-3.3.5
-  ```
+     ```shell
+     source $(brew --prefix)/opt/chruby/share/chruby/chruby.sh
+     chruby ruby-3.3.5
+     ```
 
 2. **Install dependencies listed in the [Gemfile](./Gemfile) with [bundler](https://bundler.io/)**
 
-  ```shell
-  bundler install
-  ```
+     ```shell
+     bundler install
+     ```
 
 3. **Build the site**
 
-  ```shell
-  jekyll build
-  ```
+     ```shell
+     jekyll build
+     ```
 
 4. **Serve the site locally**
 
-  ```shell
-  jekyll serve
-  ```
+     ```shell
+     jekyll serve
+     ```
 
-  Look for the `Server address:` field near the end of the command's output. You can view the site by pasting that URL into a web browser of your choice.
+     Look for the `Server address:` field near the end of the command's output. You can view the site by pasting that URL into a web browser of your choice.
 
-> [!TIP]
-> The local site will update automatically as you edit the code--just make sure to reload the page!
+   > [!TIP]
+   > The local site will update automatically as you edit the code--just make sure to reload the page!
 
 ## Submit a Pull Request
 
