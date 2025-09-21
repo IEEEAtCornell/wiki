@@ -3,7 +3,7 @@ layout: default
 title: "/faq"
 ---
 
-# The Freshman FAQ (FFAQ)
+# The First-year FAQ (FFAQ)
 
 Answers to common questions from new ECE and Engineering majors.
 
