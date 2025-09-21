@@ -1,6 +1,10 @@
 ---
 layout: default
 title: "/contributing"
+callouts:
+  warning:
+    title: Warning
+    color: red
 ---
 
 # Contributing
@@ -32,38 +36,24 @@ title: "/contributing"
 
 ## Test your Changes
 
-1. **[Install Jekyll locally](https://jekyllrb.com/docs/installation/). Follow the installation guide per your operating system.**
+1. **[Install Docker](https://docs.docker.com/engine/install/). Follow the installation guide per your operating system.**
 
-- Ruby installs compile the source code, so this step may take quite a while.
-- Note for MacOS: Jekyll recommends automatically using `chruby` by adding some commands to your shell's source file. If you don't want to do this, just run this when you need to use `jekyll` in a new shell session:
+2. **Build the Docker image**
 
-  ```shell
-  source $(brew --prefix)/opt/chruby/share/chruby/chruby.sh
-  chruby ruby-3.3.5
-  ```
+     ```shell
+     docker compose build
+     ```
 
-2. **Install dependencies listed in the [Gemfile](./Gemfile) with [bundler](https://bundler.io/)**
+3. **Run the site**
 
-  ```shell
-  bundler install
-  ```
+     ```shell
+     docker compose up
+     ```
 
-3. **Build the site**
+     Look for the `Server address:` field near the end of the command's output. You can view the site by pasting that URL into a web browser of your choice. It is generally `http://localhost:4000/wiki/`.
 
-  ```shell
-  jekyll build
-  ```
-
-4. **Serve the site locally**
-
-  ```shell
-  jekyll serve
-  ```
-
-  Look for the `Server address:` field near the end of the command's output. You can view the site by pasting that URL into a web browser of your choice.
-
-> [!TIP]
-> The local site will update automatically as you edit the code--just make sure to reload the page!
+   > [!TIP]
+   > The local site will update automatically as you edit the code--just make sure to reload the page!
 
 ## Submit a Pull Request
 

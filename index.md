@@ -1,9 +1,8 @@
 ---
 layout: default
-title: "/"
+title: "/home"
+permalink: /
 ---
-
-# IEEE at Cornell Wiki
 
 <img src="./assets/ieee_at_cornell_logo_glow.png" alt="IEEE at Cornell Logo" width="100%"/>
 
