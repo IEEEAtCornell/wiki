@@ -29,3 +29,4 @@ callouts:
     color: red
 
 favicon_ico: "/assets/bolt.png"
+remote_theme: just-the-docs/just-the-docs
