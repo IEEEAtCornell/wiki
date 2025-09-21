@@ -2,9 +2,9 @@ title: IEEE at Cornell Wiki
 description: Class information for IEEE-related courses and activities at Cornell University
 
 header_pages:
-  - index.md
-  - about.md
-  - contributing.md
+- index.md
+- about.md
+- contributing.md
 
 url: "https://ieeeatcornell.github.io"
 baseurl: "/wiki"
@@ -17,13 +17,15 @@ footer: 'follow us on <a href="https://www.instagram.com/ieee.at.cornell/">insta
 
 theme: just-the-docs
 plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
-  - jekyll-sitemap
-  - jekyll-remote-theme
+- jekyll-feed
+- jekyll-seo-tag
+- jekyll-sitemap
+- jekyll-remote-theme
 permalink: /:categories/:title/
 
 callouts:
-    warning:
-        title: Warning
-        color: red
+  warning:
+    title: Warning
+    color: red
+
+favicon_ico: "/assets/bolt.png"
