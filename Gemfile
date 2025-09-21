@@ -10,5 +10,6 @@ gem 'jekyll-seo-tag'
 gem 'jekyll-remote-theme'
 gem 'jekyll-sitemap'
 gem 'jekyll-feed'
-gem 'just-the-docs'
 gem 'jekyll-search'
+
+gem "font-awesome-sass", "~> 6.7.2"

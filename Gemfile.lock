@@ -57,6 +57,8 @@ GEM
     ffi (1.17.1-x86_64-darwin)
     ffi (1.17.1-x86_64-linux-gnu)
     ffi (1.17.1-x86_64-linux-musl)
+    font-awesome-sass (6.7.2)
+      sassc (~> 2.0)
     forwardable-extended (2.6.0)
     gemoji (4.1.0)
     github-pages (232)
@@ -292,6 +294,8 @@ GEM
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
+    sassc (2.4.0)
+      ffi (~> 1.9)
     sawyer (0.9.2)
       addressable (>= 2.3.5)
       faraday (>= 0.17.3, < 3)
@@ -337,6 +341,7 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
+  font-awesome-sass (~> 6.7.2)
   github-pages
   jekyll-feed
   jekyll-remote-theme
