@@ -10,22 +10,42 @@ This wiki covers class information for IEEE-related courses and activities at Co
 
 ## Classes
 
+{% assign level_1000 = site.courses | where: "primary_level", 1 %}
+{% assign level_2000 = site.courses | where: "primary_level", 2 %}
+{% assign level_3000 = site.courses | where: "primary_level", 3 %}
+{% assign level_4000 = site.courses | where: "primary_level", 4 %}
+{% assign level_5000 = site.courses | where: "primary_level", 5 %}
+{% assign level_6000 = site.courses | where: "primary_level", 6 %}
+
 ### 1000-Level
 
 <ul>
-  {% for post in site.categories[1000] %}
+  {% for course in level_1000 %}
     <li>
-      <a href="{{ post.url | relative_url}}">{{ post.code }}</a>: {{ post.title }}
+      <a href="{{ course.url | relative_url }}">
+        {% if course.codes %}
+          {{ course.codes | join: ", " }}
+        {% else %}
+          {{ course.code }}
+        {% endif %}
+      </a>: {{ course.title }}
     </li>
   {% endfor %}
 </ul>
 
+
 ### 2000-Level
 
 <ul>
-  {% for post in site.categories[2000] %}
+  {% for course in level_2000 %}
     <li>
-      <a href="{{ post.url | relative_url}}">{{ post.code }}</a>: {{ post.title }}
+      <a href="{{ course.url | relative_url }}">
+        {% if course.codes %}
+          {{ course.codes | join: ", " }}
+        {% else %}
+          {{ course.code }}
+        {% endif %}
+      </a>: {{ course.title }}
     </li>
   {% endfor %}
 </ul>
@@ -33,9 +53,15 @@ This wiki covers class information for IEEE-related courses and activities at Co
 ### 3000-Level
 
 <ul>
-  {% for post in site.categories[3000] %}
+  {% for course in level_3000 %}
     <li>
-      <a href="{{ post.url | relative_url}}">{{ post.code }}</a>: {{ post.title }}
+      <a href="{{ course.url | relative_url }}">
+        {% if course.codes %}
+          {{ course.codes | join: ", " }}
+        {% else %}
+          {{ course.code }}
+        {% endif %}
+      </a>: {{ course.title }}
     </li>
   {% endfor %}
 </ul>
@@ -43,19 +69,48 @@ This wiki covers class information for IEEE-related courses and activities at Co
 ### 4000-Level
 
 <ul>
-  {% for post in site.categories[4000] %}
+  {% for course in level_4000 %}
     <li>
-      <a href="{{ post.url | relative_url}}">{{ post.code }}</a>: {{ post.title }}
+      <a href="{{ course.url | relative_url }}">
+        {% if course.codes %}
+          {{ course.codes | join: ", " }}
+        {% else %}
+          {{ course.code }}
+        {% endif %}
+      </a>: {{ course.title }}
     </li>
   {% endfor %}
 </ul>
 
+
 ### 5000-Level
 
 <ul>
-  {% for post in site.categories[5000] %}
+  {% for course in level_5000 %}
     <li>
-      <a href="{{ post.url | relative_url}}">{{ post.code }}</a>: {{ post.title }}
+      <a href="{{ course.url | relative_url }}">
+        {% if course.codes %}
+          {{ course.codes | join: ", " }}
+        {% else %}
+          {{ course.code }}
+        {% endif %}
+      </a>: {{ course.title }}
+    </li>
+  {% endfor %}
+</ul>
+
+### 6000-Level
+
+<ul>
+  {% for course in level_6000 %}
+    <li>
+      <a href="{{ course.url | relative_url }}">
+        {% if course.codes %}
+          {{ course.codes | join: ", " }}
+        {% else %}
+          {{ course.code }}
+        {% endif %}
+      </a>: {{ course.title }}
     </li>
   {% endfor %}
 </ul>

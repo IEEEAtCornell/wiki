@@ -11,19 +11,21 @@ module Jekyll
     def generate(site)
       puts "Running LastOfferedGenerator..."
 
-      site.posts.docs.each do |post|
-        ece_code = extract_ece_code(post.data['codes'])
-        next unless ece_code
+      if site.collections['courses']
+        site.collections['courses'].docs.each do |course|
+          ece_code = extract_ece_code(course.data['codes'])
+          next unless ece_code
 
-        department, number = ece_code.split(' ')
-        semester = find_last_offered_semester(department, number)
+          department, number = ece_code.split(' ')
+          semester = find_last_offered_semester(department, number)
 
-        if semester
-          post.data['last_offered'] = semester
-          post.data['roster_url'] = "https://classes.cornell.edu/browse/roster/#{semester}/class/#{department}/#{number}"
-          puts " → #{ece_code} last offered: #{semester}"
-        else
-          puts " → #{ece_code} not found in recent semesters."
+          if semester
+            course.data['last_offered'] = semester
+            course.data['roster_url'] = "https://classes.cornell.edu/browse/roster/#{semester}/class/#{department}/#{number}"
+            puts " → #{ece_code} last offered: #{semester}"
+          else
+            puts " → #{ece_code} not found in recent semesters."
+          end
         end
       end
     end

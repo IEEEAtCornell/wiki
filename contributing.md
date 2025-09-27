@@ -19,10 +19,8 @@ callouts:
 
 ## Adding a Class
 
-- Create a new [markdown](https://www.markdownguide.org/basic-syntax/) document in `_posts/` with a title with the format `YYYY-MM-DD-eceXXXX.md`.
-  - `YYYY-MM-DD` is the date of creation
-  - `XXXX` is the course code
-- Fill out the header information as shown in the [ECE 2300 page](./_posts/2024-09-15-ece2300.md).
+- Create a new [markdown](https://www.markdownguide.org/basic-syntax/) document in `_courses/` with a title with the format `eceXXXX.md`, where `XXXX` is the lowest valid course code (i.e. if there are 4xxx and 5xxx versions, you should list the 4xxx code).
+- Fill out the header information as shown in the [ECE 2300 page](./course/ece2300.md).
 
 > [!IMPORTANT]
 > Make sure to fill out the `categories` field, this is how the classes are sorted and displayed on the [homepage](./index.md).
@@ -31,8 +29,8 @@ callouts:
 
 ## Editing a Class
 
-- Edit one of the class files under [`_posts`](./_posts/). Update the date in the file name to the date of the edit
-- Our pages support [MathJax](https://www.mathjax.org/) (a subset of [LaTeX](https://www.latex-project.org/)) outside the front matter section of class pages. See the [ECE 3250 page](./_posts/2024-10-14-ece3250.md) for an example.
+- Edit one of the class files under [`_courses`](./_courses/). Update the date in the file name to the date of the edit
+- Our pages support [MathJax](https://www.mathjax.org/) (a subset of [LaTeX](https://www.latex-project.org/)) outside the front matter section of class pages. See the [ECE 3250 page](./_courses/ece3250.md) for an example.
 
 ## Test your Changes
 

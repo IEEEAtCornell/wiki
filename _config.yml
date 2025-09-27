@@ -40,3 +40,8 @@ gh_edit_link_text: "Edit this page on GitHub."
 gh_edit_repository: "https://github.com/IEEEAtCornell/wiki"
 gh_edit_branch: "main"
 gh_edit_view_mode: "tree"
+
+collections:
+  courses:
+    output: true
+    permalink: /courses/:title/
