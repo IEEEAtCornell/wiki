@@ -44,4 +44,3 @@ gh_edit_view_mode: "tree"
 collections:
   courses:
     output: true
-    permalink: /courses/:title/

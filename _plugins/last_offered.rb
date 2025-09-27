@@ -8,6 +8,11 @@ module Jekyll
 
     SEMESTER_ORDER = %w[FA SU SP]
 
+    def has_cs_code?(codes)
+      return false unless codes.is_a?(Array)
+      codes.any? { |code| code.start_with?("CS") }
+    end
+
     def generate(site)
       puts "Running LastOfferedGenerator..."
 
@@ -15,6 +20,14 @@ module Jekyll
         site.collections['courses'].docs.each do |course|
           ece_code = extract_ece_code(course.data['codes'])
           next unless ece_code
+
+          # Tag as CS Crosslisted if codes include any CS code
+          if has_cs_code?(course.data['codes'])
+            course.data['tags'] ||= []
+            unless course.data['tags'].include?("CS Crosslisted")
+              course.data['tags'] << "CS Crosslisted"
+            end
+          end
 
           department, number = ece_code.split(' ')
           semester = find_last_offered_semester(department, number)
