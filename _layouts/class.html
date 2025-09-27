@@ -1,181 +1,304 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+    <head>
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+            rel="stylesheet"
+        />
 
-<head>
-    <link
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-  rel="stylesheet"
-/>
+        {% include head.html %}
+        <style>
+            /* Purple pill - Just the Docs style */
+            .pill {
+                display: inline-block;
+                padding: 0.25em 0.8em;
+                font-size: 0.9rem;
+                font-weight: 600;
+                color: #7253ed; /* purple text */
+                background-color: transparent; /* empty fill */
+                border: 2px solid #7253ed; /* purple border */
+                border-radius: 9999px;
+                user-select: none;
+                white-space: nowrap;
+                vertical-align: middle;
+                transition: all 0.3s ease;;
+                text-decoration: none;
+                cursor: pointer;
+            }
 
+            .pill:hover,
+            .pill:focus {
+                background-color: #7253ed; /* purple fill */
+                color: #fff; /* white text */
+                outline: none;
+                  box-shadow: 0 0 8px 2px #7253edc6; /* purple glow */
+            }
 
-    {% include head.html %}
-<style>
+            /* Dark mode toggle button */
+            #dark-mode-toggle {
+                position: fixed;
+                top: 1rem;
+                right: 1rem;
+                background: none;
+                border: none;
+                cursor: pointer;
+                padding: 0.3rem;
+                border-radius: 0.3rem;
+                transition: transform 0.2s ease, filter 0.2s ease;
+                z-index: 1000;
+                filter: brightness(90%);
+            }
 
-/* Dark mode toggle button */
-#dark-mode-toggle {
-    position: fixed;
-    top: 1rem;
-    right: 1rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.3rem;
-    border-radius: 0.3rem;
-    transition: transform 0.2s ease, filter 0.2s ease;
-    z-index: 1000;
-    filter: brightness(90%);
-}
+            #dark-mode-toggle:hover {
+                transform: scale(1.1);
+                filter: brightness(110%);
+            }
 
-#dark-mode-toggle:hover {
-    transform: scale(1.1);
-    filter: brightness(110%);
-}
+            #dark-mode-toggle img {
+                display: block;
+                width: 24px;
+                height: 24px;
+            }
 
-#dark-mode-toggle img {
-    display: block;
-    width: 24px;
-    height: 24px;
-}
+            /* Layout container */
+            .container {
+                max-width: 900px;
+                margin: 0 auto;
+                padding: 20px;
+            }
 
-/* Layout container */
-.container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
-}
+            /* Back button styling */
+            .back-button {
+                display: inline-block;
+                margin-bottom: 1em;
+            }
 
-/* Back button styling */
-.back-button {
-    display: inline-block;
-    margin-bottom: 1em;
-}
+            /* Professor section box */
+            .professor-section {
+                border: 1px solid currentColor; /* uses inherited text color */
+                border-radius: 0.5em;
+                margin-top: 2em;
+                padding: 1em 1.5em;
+                transition: box-shadow 0.3s ease;
+            }
 
-/* Professor section box */
-.professor-section {
-    border: 1px solid currentColor; /* uses inherited text color */
-    border-radius: 0.5em;
-    margin-top: 2em;
-    padding: 1em 1.5em;
-    transition: box-shadow 0.3s ease;
-}
+            .professor-section:hover {
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            }
 
-.professor-section:hover {
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
-}
+            /* Minor spacing tweaks for sections */
+            section h2 {
+                margin-top: 1.5em;
+            }
 
-/* Minor spacing tweaks for sections */
-section h2 {
-    margin-top: 1.5em;
-}
+            /* Use inherited colors and fonts for blockquotes, lists, links, etc. */
+            blockquote {
+                padding-left: 1em;
+                border-left: 3px solid currentColor;
+                margin: 1em 0;
+                font-style: italic;
+            }
 
-/* Use inherited colors and fonts for blockquotes, lists, links, etc. */
-blockquote {
-    padding-left: 1em;
-    border-left: 3px solid currentColor;
-    margin: 1em 0;
-    font-style: italic;
-}
+            ul {
+                padding-left: 1.5em;
+            }
 
-ul {
-    padding-left: 1.5em;
-}
+            a {
+                text-decoration: underline;
+            }
 
-a {
-    text-decoration: underline;
-}
+            /* Footer spacing */
+            footer {
+                margin-top: 3em;
+            }
 
-/* Footer spacing */
-footer {
-    margin-top: 3em;
-}
-</style>
-    
-</head>
+            /* Class roster button styling */
+            /* Class roster button styling */
+            .class-roster-button {
+                display: inline-block;
+                margin: 1rem 1rem 2rem;
+                padding: 0.6em 1.2em;
+                background-color: #0056b3;
+                color: white;
+                text-decoration: none;
+                border-radius: 0.4em;
+                font-weight: 600;
+                font-size: 1rem;
+                transition: background-color 0.3s ease, transform 0.2s ease;
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+            }
 
-<body>
-<button id="dark-mode-toggle" onclick="setTheme()">
-  <i id="darkModeIcon" class="fas fa-moon"></i>
-</button>
+            .class-roster-button:hover {
+                background-color: #00408d;
+                transform: translateY(-2px);
+                text-decoration: none;
+            }
 
-    <div class="container">
-        <a href="javascript:history.back()" class="back-button">Back</a>
-        <header>
-            <h1>{{ page.title }}</h1>
-            <p><strong>Credits:</strong> {{ page.credits }}</p>
-            <p><strong>Tags:</strong> {{ page.tags | join: ', ' }}</p>
-        </header>
+            /* Fallback message when no code is present */
+            .class-roster-unavailable {
+                margin: 1rem 1rem 2rem;
+                padding: 0.6em 1.2em;
+                border-left: 4px solid #ccc;
+                background-color: #f5f5f5;
+                color: #666;
+                font-style: italic;
+            }
 
-        <section>
-            <h2>Class Overview</h2>
-            <p>{{ page.overview }}</p>
-            <p><strong>Prerequisites:</strong> {{ page.prerequisites }}<br><strong>Key Topics:</strong> {{ page.key_topics | join: ', ' }}</p>
-        </section>
+            .course-info-table th {
+                text-align: left;
+            }
+        </style>
+    </head>
 
-        {% for professor in page.professors %}
-        <section class="professor-section">
-            <h2>Professor: {{ professor.name }}</h2>
-            <div class="professor-details">
-                <p><strong>Semester(s):</strong> {{ professor.semesters | default: "N/A" }}</p>
-                <p><strong>Difficulty:</strong> {{ professor.difficulty | default: "Not specified" }}</p>
-                <p><strong>Rating:</strong> {{ professor.rating | default: "Not rated" }}</p>
-                <p><strong>Assignments:</strong> {{ professor.assignments | default: "Not specified" }}</p>
-                <p><strong>Exams:</strong> {{ professor.exams | default: "Not specified" }}</p>
+    <body>
+        <button id="dark-mode-toggle" onclick="setTheme()">
+            <i id="darkModeIcon" class="fas fa-moon"></i>
+        </button>
 
-                <h3>Pros</h3>
-                <ul>
-                    {% for pro in professor.pros %}
-                    <li>{{ pro }}</li>
-                    {% endfor %}
-                </ul>
+        <div class="container">
+            <a href="javascript:history.back()" class="back-button">Back</a>
+            <header>
+                <h1>{{ page.title }}</h1>
+                <table class="course-info-table">
+                    <tbody>
+                        <tr>
+                            <th>Credits</th>
+                            <td>{{ page.credits }}</td>
+                        </tr>
+                        <tr>
+                            <th>Tags</th>
+                            <td>
+                                {% for tag in page.tags %}
+                                <span class="pill">{{ tag }}</span>
+                                {% endfor %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Key Topics</th>
+                            <td>{{ page.key_topics | join: ', ' }}</td>
+                        </tr>
+                        <tr>
+                            <th>Prerequisites</th>
+                            <td>{{ page.prerequisites }}</td>
+                        </tr>
+                        <tr>
+                            <th>Course Tags</th>
+                            <td>
+                                {% if page.code contains "ENGRD" %}
+                                <span class="pill">ENGRD</span>
+                                {% endif %} {% if page.code contains "CS" %}
+                                <span class="pill">CS Crosslisted</span>
+                                {% endif %} {% if page.last_offered and
+                                page.roster_url %}
+                                <a
+                                    href="{{ page.roster_url }}"
+                                    target="_blank"
+                                    class="pill pill-link"
+                                    rel="noopener"
+                                >
+                                    Last offered: {{ page.last_offered }}
+                                    <i
+                                        class="fas fa-arrow-right icon-arrow"
+                                    ></i>
+                                </a>
+                                {% else %}
+                                <span class="pill">Not recently offered</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </header>
 
-                <h3>Cons</h3>
-                <ul>
-                    {% for con in professor.cons %}
-                    <li>{{ con }}</li>
-                    {% endfor %}
-                </ul>
+            <section>
+                <h2>Class Overview</h2>
+                <p>{{ page.overview }}</p>
+            </section>
 
-                {% if professor.reviews %}
-                <h3>Student Reviews</h3>
-                {% for review in professor.reviews %}
-                <blockquote>
-                    <p>"{{ review.content }}"<br>– <em>{{ review.author }}</em></p>
-                </blockquote>
-                {% endfor %}
-                {% endif %}
+            {% for professor in page.professors %}
+            <section class="professor-section">
+                <h2>Professor: {{ professor.name }}</h2>
+                <div class="professor-details">
+                    <p>
+                        <strong>Semester(s):</strong> {{ professor.semesters |
+                        default: "N/A" }}
+                    </p>
+                    <p>
+                        <strong>Difficulty:</strong> {{ professor.difficulty |
+                        default: "Not specified" }}
+                    </p>
+                    <p>
+                        <strong>Rating:</strong> {{ professor.rating | default:
+                        "Not rated" }}
+                    </p>
+                    <p>
+                        <strong>Assignments:</strong> {{ professor.assignments |
+                        default: "Not specified" }}
+                    </p>
+                    <p>
+                        <strong>Exams:</strong> {{ professor.exams | default:
+                        "Not specified" }}
+                    </p>
 
-                <h3>Tips for Success</h3>
-                <ul>
-                    {% for tip in professor.tips %}
-                    <li>{{ tip }}</li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </section>
-        {% endfor %}
+                    <h3>Pros</h3>
+                    <ul>
+                        {% for pro in professor.pros %}
+                        <li>{{ pro }}</li>
+                        {% endfor %}
+                    </ul>
 
-        <!-- Include additional markdown content from the .md file here -->
-        <section>
-            {{ content }}
-        </section>
+                    <h3>Cons</h3>
+                    <ul>
+                        {% for con in professor.cons %}
+                        <li>{{ con }}</li>
+                        {% endfor %}
+                    </ul>
 
-    </div>
+                    {% if professor.reviews %}
+                    <h3>Student Reviews</h3>
+                    {% for review in professor.reviews %}
+                    <blockquote>
+                        <p>
+                            "{{ review.content }}"<br />–
+                            <em>{{ review.author }}</em>
+                        </p>
+                    </blockquote>
+                    {% endfor %} {% endif %}
 
-    <footer>
-        <a href="https://forms.gle/CcfAYG7w1gTZ2FLRA" target="_blank"; style="display: block; text-align: center; margin-top: 20px;">Contribute Here</a>
-    </footer>
-</body>
+                    <h3>Tips for Success</h3>
+                    <ul>
+                        {% for tip in professor.tips %}
+                        <li>{{ tip }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </section>
+            {% endfor %}
 
-<script>
-const darkModeIcon = document.getElementById("darkModeIcon");
+            <!-- Include additional markdown content from the .md file here -->
+            <section>{{ content }}</section>
+        </div>
 
-function setTheme() {
-  const root = document.documentElement;
-  const isDark = root.classList.toggle("dark");
-  
-  // toggle icon
-  darkModeIcon.className = isDark ? "fas fa-sun" : "fas fa-moon";
-}
-</script>
+        <footer>
+            <a
+                href="https://forms.gle/CcfAYG7w1gTZ2FLRA"
+                target="_blank"
+                ;
+                style="display: block; text-align: center; margin-top: 20px"
+                >Contribute Here</a
+            >
+        </footer>
+    </body>
 
+    <script>
+        const darkModeIcon = document.getElementById("darkModeIcon");
+
+        function setTheme() {
+            const root = document.documentElement;
+            const isDark = root.classList.toggle("dark");
+
+            // toggle icon
+            darkModeIcon.className = isDark ? "fas fa-sun" : "fas fa-moon";
+        }
+    </script>
 </html>
