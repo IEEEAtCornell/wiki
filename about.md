@@ -3,7 +3,7 @@ layout: default
 title: "/about"
 ---
 
-## About IEEE at Cornell
+## About [IEEE at Cornell](https://sites.coecis.cornell.edu/ieee/)
 
 We are the Cornell University student branch of the **Institute of Electrical and Electronics Engineers ([IEEE](https://www.ieee.org/))**, the world’s largest professional organization for the advancement of technology. Our mission is to foster innovation and professional growth in the fields of electrical engineering, computer science, and related disciplines.
 

@@ -7,6 +7,8 @@ title: /cs-crosslisted
 
 # CS Crosslisted Courses
 
+For more information on enrolling in CS courses, see the [FAQ]({{"/faq#cs-minor" | relative_url }}).
+
 {% assign cs_courses = site.courses | where_exp: "course", "course.tags contains 'CS Crosslisted'" %}
 {% assign grouped_courses = cs_courses | group_by: "last_offered" %}
 {% assign sorted_groups = grouped_courses | sort: "name" | reverse %}

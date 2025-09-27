@@ -16,7 +16,7 @@ This wiki covers class information for IEEE-related courses and activities at Co
 {% assign sorted_levels = grouped_by_level | sort: "name" %}
 
 {% for level_group in sorted_levels %}
-  <h3>{{ level_group.name }}000-Level</h3>
+  <h3>{{ level_group.name }}-Level</h3>
   <ul>
     {% assign level_courses = level_group.items | sort: "title" %}
     {% for course in level_courses %}

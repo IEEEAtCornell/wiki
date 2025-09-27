@@ -2,7 +2,7 @@ require 'net/http'
 require 'uri'
 
 module Jekyll
-  class LastOfferedGenerator < Generator
+  class CoursePreprocessor < Generator
     safe true
     priority :low
 
@@ -14,7 +14,7 @@ module Jekyll
     end
 
     def generate(site)
-      puts "Running LastOfferedGenerator..."
+      puts "Running course preprocessing..."
 
       if site.collections['courses']
         site.collections['courses'].docs.each do |course|
@@ -39,6 +39,12 @@ module Jekyll
           else
             puts " → #{ece_code} not found in recent semesters."
           end
+
+          # Set primary_level
+          ece_levels = extract_ece_levels(course.data['codes'])
+          unless ece_levels.empty?
+            course.data['primary_level'] = ece_levels.min
+          end
         end
       end
     end
@@ -48,6 +54,17 @@ module Jekyll
     def extract_ece_code(codes)
       return nil unless codes.is_a?(Array)
       codes.find { |code| code.start_with?("ECE") }
+    end
+
+    def extract_ece_levels(codes)
+      return [] unless codes.is_a?(Array)
+
+      codes.map do |code|
+        next unless code.start_with?("ECE")
+        match = code.match(/ECE\s+(\d+)/)
+        next unless match
+        (match[1].to_i.div(1000)) * 1000
+      end.compact
     end
 
     def find_last_offered_semester(dept, number)
