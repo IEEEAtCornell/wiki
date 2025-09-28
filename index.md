@@ -24,7 +24,7 @@ This wiki covers class information for IEEE-related courses and activities at Co
 
 ## Classes
 
-> <i class="fa fa-check-circle" style="color: #7253ed;"></i> — Currently Offered **[{{ site.current_semester }}](https://classes.cornell.edu/browse/roster/{{site.current_semester}}/subject/ECE)**
+> <i class="fa fa-check-circle accent-color" style="color: var(--accent-color);"></i> — Currently Offered **[{{ site.current_semester }}](https://classes.cornell.edu/browse/roster/{{site.current_semester}}/subject/ECE)**
 
 {% assign grouped_by_level = site.courses | group_by: "primary_level" %}
 {% assign sorted_levels = grouped_by_level | sort: "name" %}
@@ -36,7 +36,7 @@ This wiki covers class information for IEEE-related courses and activities at Co
     {% for course in level_courses %}
       <li>
       {% if course.last_offered == site.current_semester %}
-        <i class="fa fa-check-circle fa-xs" style="color: #7253ed;"></i>
+        <i class="fa fa-check-circle fa-xs" style="color: var(--accent-color);"></i>
       {% else %}
         <i class="fa fa-check-circle fa-xs" style="opacity: 0.0;"></i>
       {% endif %}

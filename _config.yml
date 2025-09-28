@@ -10,6 +10,7 @@ url: "https://ieeeatcornell.github.io"
 baseurl: "/wiki"
 
 style: light
+color_scheme: custom_theme
 markdown: kramdown
 mathjax: true
 
