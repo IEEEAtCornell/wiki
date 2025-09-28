@@ -16,6 +16,10 @@ module Jekyll
     def generate(site)
       puts "Running course preprocessing..."
 
+      current_semester_code = get_current_semester_code
+      site.config['current_semester'] = current_semester_code
+      puts " → Current semester set to: #{current_semester_code}"
+
       if site.collections['courses']
         site.collections['courses'].docs.each do |course|
           ece_code = extract_ece_code(course.data['codes'])
@@ -123,6 +127,23 @@ module Jekyll
     rescue => e
       puts "Error checking URL #{url}: #{e.message}"
       false
+    end
+
+    def get_current_semester_code
+      now = Time.now
+      year = now.year % 100
+      month = now.month
+
+      semester_prefix =
+        if month >= 8
+          "FA"
+        elsif month >= 5
+          "SU"
+        else
+          "SP"
+        end
+
+      "#{semester_prefix}#{format('%02d', year)}"
     end
   end
 end
