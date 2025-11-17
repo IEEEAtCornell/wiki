@@ -38,20 +38,34 @@ callouts:
 
 2. **Build the Docker image**
 
-     ```shell
-     docker compose build
-     ```
+    ```shell
+    docker compose build
+    ```
+
+    or run
+
+    ```shell
+    make build
+    ```
+
+    ([Make](https://www.gnu.org/software/make/manual/make.html) required).
 
 3. **Run the site**
 
-     ```shell
-     docker compose up
-     ```
+    ```shell
+    docker compose up
+    ```
 
-     Look for the `Server address:` field near the end of the command's output. You can view the site by pasting that URL into a web browser of your choice. It is generally `http://localhost:4000/wiki/`.
+    or run
 
-   > [!TIP]
-   > The local site will update automatically as you edit the code--just make sure to reload the page!
+    ```shell
+    make serve
+    ```
+
+    Look for the `Server address:` field near the end of the command's output. You can view the site by pasting that URL into a web browser of your choice. It is generally `http://localhost:4000/wiki/`.
+
+    > [!TIP]
+    > The local site will update automatically as you edit the code--just make sure to reload the page!
 
 ## Submit a Pull Request
 
